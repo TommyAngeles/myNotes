@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My notes</title>
+    <link rel="shortcut icon" href="img/icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="modal fade modal-delete-all" id="delete-all-modal" tabindex="-1" role="dialog" aria-labelledby="delete-all-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-delete-all__dialog" role="document">
+            <div class="modal-content modal-delete-all__content">
+                <div class="modal-header modal-delete-all__header">
+                    <h5 class="modal-title modal-delete-all__title">Подтвердите своё действие</h5>
+                    <button type="button" class="btn-close modal-delete-all__btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-delete-all__body">
+                    Удаление всех задач из списка.
+                </div>
+                <div class="modal-footer modal-delete-all__footer">
+                    <button type="button" class="btn btn-secondary modal-delete-all__btn-cancel" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary modal-delete-all__btn-confirm" data-bs-dismiss="modal" id="delete-all-confirm-btn">Подтвердить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-mark-color" id="mark-color-modal" tabindex="-1" role="dialog" aria-labelledby="mark-color-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-mark-color__dialog" role="document">
+            <div class="modal-content modal-mark-color__content">
+                <div class="modal-header modal-mark-color__header">   
+                    <h5 class="modal-title modal-mark-color__title" id="mark-color-modal-title">Выберите цвет</h5>  
+                    <button type="button" class="btn-close modal-mark-color__close-btn-1" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>
+                <div class="modal-body modal-mark-color__body">
+                    <div class="container modal-mark-color__container">
+                        <div class="row modal-mark-color__row">
+                            <div class="col d-flex justify-content-center modal-mark-color__col">
+                                <div class="modal-mark-color__color mark-color-1">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-2">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-3">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-4">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row modal-mark-color__row">
+                            <div class="col d-flex justify-content-center modal-mark-color__col">
+                                <div class="modal-mark-color__color mark-color-5">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-6">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-7">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-8">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row modal-mark-color__row">
+                            <div class="col d-flex justify-content-center modal-mark-color__col">
+                                <div class="modal-mark-color__color mark-color-9">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-10">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-11">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                                <div class="modal-mark-color__color mark-color-12">
+                                    <img class="hidden" src="/img/check-mark.svg" alt="check-mark" id="check-mark">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer modal-mark-color__footer">
+                    <button type="button" class="btn btn-secondary modal-mark-color__close-btn-2" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary modal-mark-color__save-btn" data-bs-dismiss="modal">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container-fluid">
+            <div class="header__main row">
+                <div class="col"></div>
+                <div class="col-8 align-self-center text-center">
+                    <div class="header__title h1">Мои заметки:</div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="editor editor_disabled row">
+                <div class="col d-flex align-items-center">
+                    <button class="editor__close-btn" type="button" aria-label="Close">
+                        <svg class="editor__close-btn-svg" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 1 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                    <div class="editor__selected-tasks">Выбрано:</div>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <button class="editor__bold-btn">B</button>
+                    <button class="editor__cursive-btn">I</button>
+                    <button class="editor__palette-btn" type="button" data-bs-toggle="modal" data-bs-target="#mark-color-modal">
+                        <img class="editor__palette-svg" src="img/palette.svg">
+                    </button>
+                    <button class="editor__delete-task-btn">
+                        <img  class="editor__delete-svg" src="img/trash-can.svg">
+                    </button>
+                </div>
+            </div>
+    </header>
+
+    <main class="main">
+        <div class="main__task-container container d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="main__task-list main__task-list_empty">Список пуст</div>
+                </div>
+            </div>
+        </div>
+        <div class="main__btns-container container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="main__btns d-flex justify-content-end align-items-center">
+                        <button class="main__open-delete-modal-btn btn btn-danger hidden" data-bs-target="#delete-all-modal" data-bs-toggle="modal">Очистить</button>
+                        <button class="main__add-task-btn btn btn-success">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
